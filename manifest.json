@@ -1,0 +1,69 @@
+{
+  "name": "Gif-UET",
+  "version": "1.0",
+  "description": "Build an Extension!",
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "cookies",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications",
+    "*://*.facebook.com/*",
+    "*://thidaihoc.online/*",
+    "*://*.messenger.com/*"
+  ],
+  "page_action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "images/giftUet16.png",
+      "32": "images/giftUet32.png",
+      "48": "images/giftUet48.png",
+      "128": "images/giftUet128.png"
+    },
+    "icons": {
+      "16": "images/giftUet16.png",
+      "32": "images/giftUet32.png",
+      "48": "images/giftUet48.png",
+      "128": "images/giftUet128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://facebook.com/*",
+        "*://*.messenger.com/*",
+        "*://*.imgur.com/*",
+        "*://thidaihoc.online/*",
+        "*://localhost:*/*",
+        "*://ec2-34-207-67-69.compute-1.amazonaws.com:*/*"
+      ],
+      "js": [
+        "js/jquery.min.js",
+        "js/content.js"
+      ]
+    }
+  ],
+  "externally_connectable": {
+    "ids": [
+      "*"
+    ],
+    "matches": [
+      "*://*.facebook.com/*",
+      "*://facebook.com/*",
+      "*://*.messenger.com/*",
+      "*://*.imgur.com/*",
+      "*://thidaihoc.online/*",
+      "*://localhost:*/*",
+      "*://ec2-34-207-67-69.compute-1.amazonaws.com:*/*"
+    ],
+    "accepts_tls_channel_id": false
+  },
+  "manifest_version": 2
+}
